@@ -68,4 +68,39 @@ public class challenges{
             }
         }
     }
+
+    /*
+    * You have two numbers represented by a linked list 
+    * where each node contains a single digit The digits are stored in reverse order
+    * such that the 1’s digit is at the head of the list 
+    * Write a function that adds the two numbers and returns the sum as a linked list
+    */
+    //TO DO.... doesn't work. 
+    public static void numAddition(Node h1, Node h2){
+        Node ans = new Node();
+        Node tempAns = ans;
+        Node temp1 = h1;
+        Node temp2 = h2;
+        int remainder = 0;
+
+        while(temp1.next != null){
+            if(temp1.value + temp2.value >= 10){
+                int t = temp1.value + temp2.value;
+                t = t - 10;
+                ans.value = t;
+                remainder = 1;
+                
+            }
+            else{
+                ans.value = temp1.value + temp2.value;
+                remainder = 0;
+            }
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+            ans = ans.next;
+            ans = new Node();
+        }
+        printList(ans);
+    }
+
 }
