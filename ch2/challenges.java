@@ -6,14 +6,8 @@ public class challenges{
         Node head = new Node();
         fillList(head, 20);
         printList(head);
-        System.out.println("5th element from end = " + Integer.toString(findNthElementFromEnd(head, 5)));
+        System.out.println("5th element from end = " + Integer.toString(findNthToLast(head, 5)));
     }
-    /*public static int findNthToLast(){
-        int ans;
-
-        return ans;
-    }*/
-    //fills Linked list with Random Nodes
     //takes in head, and desired number of nodes.
     public static void fillList(Node h, int amt){
         Node temp = h;
@@ -23,11 +17,10 @@ public class challenges{
             temp = temp.next;
         }
     }
-    public static int findNthElementFromEnd(Node h, int n){
+    public static int findNthToLast(Node h, int n){
         int ans = -999;
         Node temp = h;
         Node temp2 = h;
-        
         int count = 0;
         int counter2 = 0;
         while(temp.next != null){
