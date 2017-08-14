@@ -6,7 +6,11 @@ public class challenges{
         Node head = new Node();
         fillList(head, 20);
         printList(head);
-        System.out.println("5th element from end = " + Integer.toString(findNthToLast(head, 5)));
+        System.out.println("Removing duplicates...");
+        removeDuplicates(head);
+        printList(head);
+        
+        //System.out.println("5th element from end = " + Integer.toString(findNthToLast(head, 5)));
     }
     //takes in head, and desired number of nodes.
     public static void fillList(Node h, int amt){
@@ -16,6 +20,16 @@ public class challenges{
             temp.next= new Node((int) (Math.random() * (50)) + 0);
             temp = temp.next;
         }
+    }
+    //Prints list to console. 
+    public static void printList(Node h){
+        Node temp = h;
+        System.out.println("List: ");
+        while(temp.next != null){
+            System.out.print(Integer.toString(temp.value) + " ");
+            temp = temp.next;
+        }
+        System.out.println();
     }
     public static int findNthToLast(Node h, int n){
         int ans = -999;
@@ -36,13 +50,22 @@ public class challenges{
         }
         return ans; 
     }
-    public static void printList(Node h){
+
+    public static void removeDuplicates(Node h){
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         Node temp = h;
-        System.out.println("List: ");
+        Node prev = h;
         while(temp.next != null){
-            System.out.print(Integer.toString(temp.value) + " ");
-            temp = temp.next;
+            if(map.containsKey(temp.value)){
+                prev.next = temp.next;
+                temp = temp.next;
+            }
+            else{
+                map.put(temp.value, 0);
+
+                prev = temp;
+                temp = temp.next;
+            }
         }
-        System.out.println();
     }
 }
