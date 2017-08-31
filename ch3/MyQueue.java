@@ -11,7 +11,7 @@ public class MyQueue{
         int input = 1;
         Scanner sc = new Scanner(System.in);
         while(input != 0){
-            System.out.println("1.Print Queue\n2.Add\n3.Remove\n4.Peek\n0.Exit\n:");
+            System.out.println("1.Print Queue\n2.Add\n3.Remove\n4.Peek\n0.Exit");
             input = sc.nextInt();
             if(input == 1){
                 q.printQueue();
