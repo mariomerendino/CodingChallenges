@@ -28,6 +28,7 @@ public class MyQueue{
             }
 
         }
+        sc.close();
     }
     public MyQueue(){
 
