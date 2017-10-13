@@ -15,6 +15,7 @@ public class uniqueCharacters{
     }
     //With Hashmap... run time O(n). 
     public static Boolean uniqueChar1(String word){
+        //The integer isnt used. 
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         for(int i = 0; i < word.length(); i++){
             //if the map already contains the character return false
