@@ -5,8 +5,15 @@ public class challenges{
         Node head = new Node();
         fillList(head, 20);
         printList(head);
-        System.out.println("Removing duplicates...");
-        removeDuplicates(head);
+        //System.out.println("Removing duplicates...");
+        //removeDuplicates(head);
+       // printList(head);
+        //Node r = reverseList(head);
+        //System.out.println("Reverse...");
+        //printList(r);
+
+        System.out.println("Reverse...");
+        reverseSameList(head);
         printList(head);
         
         //System.out.println("5th element from end = " + Integer.toString(findNthToLast(head, 5)));
@@ -101,5 +108,60 @@ public class challenges{
         }
         printList(ans);
     }
+    //Reverses list by returning a new one
+    // uses a stack. Runtime O(n)
+    // Space O(n)
+    public static Node reverseList(Node head){
+        Node temp = head;
+        Stack<Integer> s = new Stack<Integer>();
+        while(temp.next != null){
+            s.push(temp.value);
+            temp = temp.next;
+        }
+        Node ans = new Node();
+        Node temp2 = ans;
+        while(!s.empty()){
+            temp2.value = s.pop();
+            temp2.next = new Node();
+            temp2 = temp2.next;
+        }
+        return ans;
+    }
+    public static void reverseSameList(Node head){
+        Node prevNode = null; 
+        Node currNode = head;
+        Node nextNode = null;
+        while(currNode != null){
+			nextNode = currNode.next;
+			currNode.next = prevNode;
+			prevNode = currNode;
+			currNode = nextNode;
+            
+        }
+        head = prevNode;
+    }
+    /*boolean hasCycle(Node head) {
+        Node temp = head;
+        HashSet<Node> s = new HashSet<Node>();
+        while(temp!=null){
+            if(s.contains(temp))
+                return true;
+            else
+                s.add(temp);
+        }
+        return false;
+    }*/
+    boolean hasCycle(Node head){
+        Node slow = head;
+        Node fast = head;
 
+        while(fast != null && fast.next != null) {
+            slow = slow.next;          // 1 hop
+            fast = fast.next.next;     // 2 hops 
+
+            if(slow == fast)  // fast caught up to slow, so there is a loop
+                return true;
+        }
+        return false;  // fast reached null, so the list terminates
+    }
 }
