@@ -65,5 +65,31 @@ public class matrix{
             System.out.println();
         }
     }
+    //UGH REALLY HARD TO EXPLAIN But....
+    //when rotating you only need to use half the rows and a quarter of the colums like this
+    //
+    //////////////////////////////
+    /*
+        1| 2| 3| 4| 5| 6| 7 // a[0][0] ___ a[0][matrix[i].length - (i+1)]
+        8, 9| 1| 2| 3| 4, 5
+        6, 7, 8| 9| 1, 2, 3
+        4, 5, 6, 7, 8, 9, 1
+        2, 3, 4, 5, 6, 7, 8
+        9, 1, 2, 3, 4, 5, 6 // a[matrix.length-(i+1)][0] __ a[matrix.length-(i+1)][matrix[i].length]
+    */
+    public void rotateMatrix(){
+        int temp = 0;
+        int temp2 = 0;
+        for(int i = 0; i < matrix.length/2; i++){
+            for(int j = i; j < matrix[i].length-(i+1); j++){
+                temp = a[i][matrix[i].length-j];
+                a[i][matrix[i].length-j] = a[i][j];
+                temp2 = a[matrix.length-(i+1)][matrix[i].length-(i+1)];
+                a[matrix.length-(i+1)][matrix[i].length-(i+1)] = temp;
+                a[matrix.length-(i+1)][i] = temp2;
+
+            }
+        }
+    }
 
 }

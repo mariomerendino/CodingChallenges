@@ -1,6 +1,7 @@
 import java.util.*;
 public class googleVideo{
     public static void main(String[] args){
+        System.out.print(Integer.toString(5/2));        
         int[] arr = {1,2,3,9};
         printArr(arr);
         printArr(findMult(arr,9));
