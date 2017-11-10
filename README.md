@@ -1,3 +1,3 @@
 # CodingChallenges
 
-This Repository is for the coding challenges I have done on my local Machine for interview Prep
+This Repository is for the coding challenges I did on my computer for interview Prep
