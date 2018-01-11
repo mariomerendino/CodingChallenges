@@ -20,6 +20,7 @@ public class uniqueCharacters{
         for(int i = 0; i < word.length(); i++){
             //if the map already contains the character return false
             if(map.containsKey(word.charAt(i))){
+                //map.get(key)
                 return false; 
             }
             //or else add it to the map. 
@@ -29,9 +30,25 @@ public class uniqueCharacters{
         }
         return true;
     } 
+    //HASHSET
+    public static Boolean uniqueChar2(String word){
+        //The integer isnt used. 
+        HashSet<Character> set = new HashSet<Character>();
+        for(int i = 0; i < word.length(); i++){
+            //if the map already contains the character return false
+            if(set.contains(word.charAt(i))){
+                return false; 
+            }
+            //or else add it to the map. 
+            else{
+                set.add(word.charAt(i));                
+            }
+        }
+        return true;
+    } 
     public static void main(String[] args){
         //Input a String. 
-        if(uniqueChar1("abc")){
+        if(uniqueChar2("abac")){
             System.out.println("UNIQUE");
         }
         else{
